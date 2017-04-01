@@ -1,6 +1,9 @@
 package com.udacity.stockhawk.ui;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -43,6 +46,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @BindView(R.id.error)
     TextView error;
     private StockAdapter adapter;
+
+    // Receiver for data updated
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Check if user search a symbol that doesn't exists
+            String symbol = PrefUtils.getNonexistentSymbol(context);
+            if (symbol != null && !symbol.isEmpty()) {
+                Toast.makeText(getApplicationContext(), symbol + " doesn't exist.", Toast.LENGTH_LONG).show();
+                // Remove from preferences to not showing again
+                PrefUtils.removeNonexistentSymbol(context);
+            }
+        }
+    };
 
     @Override
     public void onClick(String symbol) {
@@ -185,5 +202,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(QuoteSyncJob.ACTION_DATA_UPDATED);
+        registerReceiver(receiver, filter);
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(receiver);
+        super.onPause();
     }
 }

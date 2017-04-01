@@ -88,4 +88,46 @@ public final class PrefUtils {
         editor.apply();
     }
 
+    /**
+     * Called when user wants to add a symbol that doesn't exist
+     *
+     * @param context context
+     * @param symbol  not existent symbol
+     */
+    public static void setNonexistentSymbol(Context context, String symbol) {
+        // Remove the symbol form stocks
+        removeStock(context, symbol);
+        // Insert the symbol in shared preferences
+        String key = context.getString(R.string.pref_nonexistent_symbol);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, symbol);
+        editor.apply();
+    }
+
+    /**
+     * Recovers nonexistent symbol
+     *
+     * @param context context
+     * @return non existent symbol or null if empty
+     */
+    public static String getNonexistentSymbol(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String key = context.getString(R.string.pref_nonexistent_symbol);
+        return prefs.getString(key, null);
+    }
+
+    /**
+     * Removes nonexistent symbol
+     *
+     * @param context context
+     */
+    public static void removeNonexistentSymbol(Context context) {
+        // Remove the symbol in shared preferences
+        String key = context.getString(R.string.pref_nonexistent_symbol);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove(key);
+        editor.apply();
+    }
 }
