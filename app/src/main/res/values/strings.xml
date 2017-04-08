@@ -34,4 +34,6 @@
     <string name="toast_no_connectivity">Will refresh when network available.</string>
 
     <string name="stock_detail_activity_label">Stock Price History</string>
+    <string name="add_stock_button">Add stock</string>
+    <string name="stock_price_chart">Stock price evolution chart</string>
 </resources>
