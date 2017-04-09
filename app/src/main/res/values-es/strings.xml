@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Stock Hawk</string>
+    <string name="add_stock_button">Añadir stock</string>
+    <string name="chart_description">Evolución del precio</string>
+    <string name="dialog_add">Añadir</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_hint">Símbolo (p.j. GOOG)</string>
+    <string name="dialog_title">Añadir Stock</string>
+    <string name="error_no_network">No hay conexión de red. Se cargará la información del stock cuando vuelva a estar disponible.</string>
+    <string name="error_no_stocks">No hay ningún stock añadido todavía. Pulse el botón flotante para añadir uno.</string>
+    <string name="pref_display_mode_key">modoVisualización</string>
+    <string name="stock_detail_activity_label">Evolución de precio del Stock</string>
+    <string name="stock_price_chart">Gráfico de evolución del precio</string>
+    <string name="toast_no_connectivity">Se recargará cuando haya una red disponible.</string>
+    <string name="toast_stock_added_no_connectivity">Añadido el símbolo %s. Se recargará cuando haya una red disponible.</string>
+    <string name="nonexistent_symbol">El símbolo %s no existe.</string>
+</resources>

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // Check if user search a symbol that doesn't exists
             String symbol = PrefUtils.getNonexistentSymbol(context);
             if (symbol != null && !symbol.isEmpty()) {
-                Toast.makeText(getApplicationContext(), symbol + " doesn't exist.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.nonexistent_symbol, symbol), Toast.LENGTH_LONG).show();
                 // Remove from preferences to not showing again
                 PrefUtils.removeNonexistentSymbol(context);
             }

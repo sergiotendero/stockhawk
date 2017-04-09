@@ -64,7 +64,7 @@ public class StockDetailActivity extends AppCompatActivity {
 
                 // set description label
                 Description chartDescription = new Description();
-                chartDescription.setText("Price evolution");
+                chartDescription.setText(getString(R.string.chart_description));
                 stockChart.setDescription(chartDescription);
 
                 // hide x labels because they are too much
