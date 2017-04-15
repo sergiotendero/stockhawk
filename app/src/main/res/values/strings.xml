@@ -38,4 +38,8 @@
     <string name="stock_price_chart">Stock price evolution chart</string>
     <string name="chart_description">Price evolution</string>
     <string name="nonexistent_symbol">%s does not exist.</string>
+
+    <!-- It is not needed to translate the widget title -->
+    <string name="title_widget" translatable="false">Stock Hawk</string>
+    <string name="empty_stock_list">No stocks added</string>
 </resources>

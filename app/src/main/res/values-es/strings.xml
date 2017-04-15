@@ -15,4 +15,5 @@
     <string name="toast_no_connectivity">Se recargará cuando haya una red disponible.</string>
     <string name="toast_stock_added_no_connectivity">Añadido el símbolo %s. Se recargará cuando haya una red disponible.</string>
     <string name="nonexistent_symbol">El símbolo %s no existe.</string>
+    <string name="empty_stock_list">No hay ningún stock añadido todavía</string>
 </resources>
