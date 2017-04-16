@@ -73,11 +73,11 @@ public final class QuoteSyncJob {
 
 
                 Stock stock = quotes.get(symbol);
-                StockQuote quote = stock.getQuote();
 
+                // if returned stock is null or a property is null means stock quote doesn't exist so it will not be added
+                if (stock != null && stock.getCurrency() != null) {
+                    StockQuote quote = stock.getQuote();
 
-                // if currency is null means stock quote doesn't exist so it will not be added
-                if (stock.getCurrency() != null) {
                     float price = quote.getPrice().floatValue();
                     float change = quote.getChange().floatValue();
                     float percentChange = quote.getChangeInPercent().floatValue();
